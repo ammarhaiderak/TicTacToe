@@ -1,0 +1,1 @@
+You may need to change the ImageIcon 'path' according to your directory to run the game properly.
