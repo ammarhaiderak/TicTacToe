@@ -5,7 +5,6 @@
  */
 package tictactoe;
 
-import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,16 +26,15 @@ public class MyGame extends JFrame implements ActionListener, MyView {
     private ImageIcon cross;
     private ImageIcon tick;
     private ImageIcon current;
-    private Controller c;
+    private final Controller c;
     private JButton currBtn;
-    //private int winner = -1;
-//1 for player 2
 
     MyGame() {
         initGui();
         c = new Controller(this, new Grid(this));
     }
 
+    @Override
     public void switchTurn() {
 
         if (turn == 1) {
@@ -56,8 +54,8 @@ public class MyGame extends JFrame implements ActionListener, MyView {
         panel = new JPanel();
         panel.setLayout(new GridLayout(3, 3));
         add(panel);
-
-        // c.setLayout(new GridLayout(3, 3));
+        
+          // c.setLayout(new GridLayout(3, 3));
         setSize(600, 600);
         b00 = new JButton("");
         b01 = new JButton("");
@@ -106,6 +104,7 @@ public class MyGame extends JFrame implements ActionListener, MyView {
         panel.add(b21);
         panel.add(b22);
 
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 
@@ -122,10 +121,12 @@ public class MyGame extends JFrame implements ActionListener, MyView {
 
     }
 
-    public void updateGrid() {
+    @Override
+    public void updateGrid() {  //called from controller
         currBtn.setIcon(current);
     }
 
+    @Override
     public void displayWinner(int status) {
         String msg = "DRAWN!";
 
