@@ -54,8 +54,10 @@ public class MyGame extends JFrame implements ActionListener, MyView {
         panel = new JPanel();
         panel.setLayout(new GridLayout(3, 3));
         add(panel);
-        
-          // c.setLayout(new GridLayout(3, 3));
+
+        setTitle("Ammar Haider 16L-4249");
+
+        // c.setLayout(new GridLayout(3, 3));
         setSize(600, 600);
         b00 = new JButton("");
         b01 = new JButton("");
